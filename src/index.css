@@ -168,72 +168,222 @@ All colors MUST be HSL.
 
 /* Print styles for PDF export */
 @media print {
-  /* Hide interactive elements */
-  button,
-  .sticky,
-  [role="button"],
-  .no-print {
-    display: none !important;
+  /* Page settings */
+  @page {
+    size: A4;
+    margin: 15mm;
   }
 
-  /* Remove fixed positioning */
-  header,
-  nav {
-    position: relative !important;
-    top: auto !important;
+  /* Reset body and html */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
   }
 
-  /* Ensure content flows properly */
-  body {
+  html, body {
+    width: 100% !important;
+    height: auto !important;
+    overflow: visible !important;
     background: white !important;
     color: black !important;
+    margin: 0 !important;
+    padding: 0 !important;
   }
 
-  /* Expand all collapsed sections */
-  [data-state="closed"] {
+  body {
+    font-size: 10pt !important;
+    line-height: 1.4 !important;
+  }
+
+  /* Hide interactive elements */
+  button,
+  [role="button"],
+  .no-print,
+  nav[class*="sticky"] {
+    display: none !important;
+    visibility: hidden !important;
+  }
+
+  /* Remove sticky/fixed positioning */
+  .sticky,
+  header,
+  nav,
+  [class*="sticky"] {
+    position: static !important;
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    z-index: auto !important;
+    transform: none !important;
+  }
+
+  /* Ensure all containers are visible */
+  div,
+  main,
+  section,
+  article,
+  .container {
+    max-width: 100% !important;
+    width: 100% !important;
+    overflow: visible !important;
+    height: auto !important;
+    max-height: none !important;
     display: block !important;
   }
 
-  /* Adjust page breaks */
-  section {
-    page-break-inside: avoid;
-    break-inside: avoid;
+  /* Force visibility for all content */
+  header,
+  main,
+  section,
+  footer {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
   }
 
-  /* Remove shadows and backgrounds for cleaner print */
+  /* Expand all collapsed sections */
+  [data-state="closed"],
+  [aria-hidden="true"] {
+    display: block !important;
+    visibility: visible !important;
+  }
+
+  /* Page break handling */
+  h1, h2, h3, h4, h5, h6 {
+    page-break-after: avoid !important;
+    break-after: avoid !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  section {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  /* Allow breaks in grids */
+  div[class*="grid"] {
+    page-break-inside: auto !important;
+    break-inside: auto !important;
+  }
+
+  /* Prevent page breaks within cards when possible */
+  [class*="Card"],
+  .card {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    margin-bottom: 8pt !important;
+  }
+
+  /* Remove visual effects */
   .shadow,
   .shadow-sm,
   .shadow-md,
-  .shadow-lg {
+  .shadow-lg,
+  .shadow-xl {
     box-shadow: none !important;
   }
 
-  /* Ensure charts and cards are visible */
-  .bg-card,
-  .bg-muted {
+  .backdrop-blur-sm,
+  .backdrop-blur,
+  [class*="backdrop"] {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  /* Ensure basic card backgrounds are visible but not colored elements */
+  .bg-card:not([class*="score"]):not([class*="gap"]),
+  .bg-muted:not([class*="score"]):not([class*="gap"]) {
     background: white !important;
-    border: 1px solid #e5e7eb !important;
+    border: 1px solid #d1d5db !important;
   }
 
-  /* Make sure text is readable */
+  /* Preserve ALL colored backgrounds - score chips, gap tags, etc */
+  [class*="bg-[hsl"],
+  [class*="text-[hsl"],
+  [class*="border-[hsl"] {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+
+  /* Force color rendering for specific score/gap related elements */
+  span[class*="bg-[hsl(var(--score"],
+  span[class*="bg-[hsl(var(--gap"] {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+
+  /* Preserve border colors */
+  [class*="border-[hsl"] {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Text color fixes */
+  .text-foreground {
+    color: #000000 !important;
+  }
+
   .text-muted-foreground {
-    color: #6b7280 !important;
+    color: #4b5563 !important;
   }
 
-  /* Adjust font sizes for print */
-  body {
-    font-size: 11pt;
-  }
-
+  /* Typography adjustments */
   h1 {
-    font-size: 20pt;
+    font-size: 18pt !important;
+    margin-bottom: 6pt !important;
   }
 
   h2 {
-    font-size: 16pt;
+    font-size: 14pt !important;
+    margin-top: 10pt !important;
+    margin-bottom: 6pt !important;
   }
 
   h3 {
-    font-size: 14pt;
+    font-size: 12pt !important;
+    margin-bottom: 4pt !important;
+  }
+
+  p {
+    font-size: 10pt !important;
+    margin-bottom: 4pt !important;
+  }
+
+  /* Spacing fixes */
+  .space-y-8 > *,
+  .space-y-10 > * {
+    margin-bottom: 12pt !important;
+  }
+
+  .space-y-4 > * {
+    margin-bottom: 6pt !important;
+  }
+
+  /* Grid layouts for print */
+  [class*="grid-cols"] {
+    display: block !important;
+  }
+
+  [class*="grid-cols"] > * {
+    width: 100% !important;
+    margin-bottom: 8pt !important;
+  }
+
+  /* Keep flex items visible */
+  .flex {
+    display: flex !important;
+    flex-wrap: wrap !important;
+  }
+
+  /* Ensure all text is visible */
+  * {
+    text-overflow: clip !important;
+    overflow: visible !important;
   }
 }
