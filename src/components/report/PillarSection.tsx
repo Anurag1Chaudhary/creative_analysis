@@ -71,7 +71,7 @@ export function PillarSection({
             <div className="p-2.5 rounded-xl bg-primary/10">
               <Icon className="h-6 w-6 text-primary" />
             </div>
-            <h2 className="text-xl font-bold text-foreground">{config.label} Pillar</h2>
+            <h2 className="text-xl font-bold text-foreground">{config.label}</h2>
           </div>
 
           <div className="flex items-center gap-6">

@@ -23,9 +23,9 @@ export interface ReportData {
 
 export const PILLAR_CONFIG = {
   V_visual: { label: "Visual", icon: "Eye" },
-  A_audience_resonance: { label: "Audience", icon: "Users" },
-  L_logic_and_clarity: { label: "Logic", icon: "Brain" },
-  E_execution_and_action: { label: "Execution", icon: "Zap" },
+  A_audience_resonance: { label: "Audience Alignment", icon: "Users" },
+  L_logic_and_clarity: { label: "Value Translation", icon: "Brain" },
+  E_execution_and_action: { label: "Conversion Confidence", icon: "Zap" },
 } as const;
 
 export type PillarKey = keyof typeof PILLAR_CONFIG;
@@ -44,7 +44,7 @@ export const entityReportJSON: ReportData[] = [
   {
     summary: {
       V_visual: {
-        stop_style: {
+        thumb_stop_trigger: {
           score: "V High",
           values: {
             "Product demo": 1,
@@ -76,10 +76,10 @@ export const entityReportJSON: ReportData[] = [
             "Curiosity": 4,
             "Relatable": 3
           },
-          comment: "A dominant pattern reveals Hybrid hook tactics combining persona callouts with benefits or curiosity, scoring very high overall. Curiosity and relatable themes also score highly in driving immediate audience interest. Problem-oriented hooks deliver strong relevance when addressing pain points.",
-          actions_next_steps_recommendations: "Prioritize Hybrid hooks that blend clear persona targeting with aspirational or benefit messaging to maximize relevance and appeal. Integrate more curiosity and relatable hooks selectively to boost engagement and differentiate campaigns.",
+          comment: "A dominant pattern reveals Hybrid hook tactics combining persona_alignment callouts with benefits or curiosity, scoring very high overall. Curiosity and relatable themes also score highly in driving immediate audience interest. Problem-oriented hooks deliver strong relevance when addressing pain points.",
+          actions_next_steps_recommendations: "Prioritize Hybrid hooks that blend clear persona_alignment targeting with aspirational or benefit messaging to maximize relevance and appeal. Integrate more curiosity and relatable hooks selectively to boost engagement and differentiate campaigns.",
         },
-        persona: {
+        persona_alignment: {
           score: "V High",
           values: {
             "Fashion-focused women": 15,
@@ -87,8 +87,8 @@ export const entityReportJSON: ReportData[] = [
             "Deal/discount seekers": 0,
             "Unknown/Other": 0
           },
-          comment: "Nearly all creatives effectively target clear personas, typically professional, stylish women or trend-conscious young adults, with consistently very high resonance scores. This precise persona alignment underpins strong engagement.",
-          actions_next_steps_recommendations: "Maintain rigorous persona targeting focusing on professional, stylish women and young trend-driven consumers. Expand persona refinement experiments around adjacent segments to unlock incremental reach while preserving high resonance.",
+          comment: "Nearly all creatives effectively target clear persona_alignments, typically professional, stylish women or trend-conscious young adults, with consistently very high resonance scores. This precise persona_alignment alignment underpins strong engagement.",
+          actions_next_steps_recommendations: "Maintain rigorous persona_alignment targeting focusing on professional, stylish women and young trend-driven consumers. Expand persona_alignment refinement experiments around adjacent segments to unlock incremental reach while preserving high resonance.",
         },
       },
       L_logic_and_clarity: {
@@ -142,7 +142,7 @@ export const benchmarkReportJSON: ReportData[] = [
   {
     summary: {
       V_visual: {
-        stop_style: {
+        thumb_stop_trigger: {
           score: "V High",
           values: {
             "Product demo": 4,
@@ -177,7 +177,7 @@ export const benchmarkReportJSON: ReportData[] = [
           comment: "The majority of creatives leverage a strong offer hook, particularly explicit discount calls prominently placed, with high to very high scores; curiosity and celebrity hooks appear less frequently but score highly when used.",
           actions_next_steps_recommendations: "Focus on strengthening and consistently applying direct offer-based hooks to trigger immediate audience attention; selectively test curiosity hooks for brand engagement and celebrity hooks to elevate aspirational appeal.",
         },
-        persona: {
+        persona_alignment: {
           score: "V High",
           values: {
             "Fashion-focused women": 39,
@@ -186,7 +186,7 @@ export const benchmarkReportJSON: ReportData[] = [
             "Unknown/Other": 5
           },
           comment: "Personas largely center around fashion-conscious, deal-seeking Indian women interested in jewelry, often explicitly noted and scoring high to very high in resonance.",
-          actions_next_steps_recommendations: "Continue refining creatives to target fashion-conscious female deal-seekers with culturally relevant and jewelry-focused messaging; consider segmentation tests for subgroups like wedding shoppers or premium buyers to deepen persona connection.",
+          actions_next_steps_recommendations: "Continue refining creatives to target fashion-conscious female deal-seekers with culturally relevant and jewelry-focused messaging; consider segmentation tests for subgroups like wedding shoppers or premium buyers to deepen persona_alignment connection.",
         },
       },
       L_logic_and_clarity: {
