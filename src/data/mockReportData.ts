@@ -80,7 +80,7 @@ export const entityReportJSON: ReportData[] = [
           actions_next_steps_recommendations: "Prioritize Hybrid hooks that blend clear persona_alignment targeting with aspirational or benefit messaging to maximize relevance and appeal. Integrate more curiosity and relatable hooks selectively to boost engagement and differentiate campaigns.",
         },
         persona_alignment: {
-          score: "V High",
+          score: "Medium",
           values: {
             "Fashion-focused women": 15,
             "Comfort/loungewear seekers": 0,
@@ -113,7 +113,7 @@ export const entityReportJSON: ReportData[] = [
         },
       },
       E_execution_and_action: {
-        cta_strength: {
+        CTA_strength: {
           score: "Low",
           values: {
             "None": 8,
@@ -213,7 +213,7 @@ export const benchmarkReportJSON: ReportData[] = [
         },
       },
       E_execution_and_action: {
-        cta_strength: {
+        CTA_strength: {
           score: "High",
           values: {
             "None": 33,

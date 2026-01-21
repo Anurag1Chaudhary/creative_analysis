@@ -24,7 +24,7 @@ function formatMetricName(key: string): string {
 
 function getActionTitle(metricKey: string): string {
   const actions: Record<string, string> = {
-    cta_strength: "Add explicit CTAs to all creatives",
+    CTA_strength: "Add explicit CTAs to all creatives",
     visual_hierarchy: "Redesign templates with clear focal points",
     value_proposition: "Develop compelling value propositions",
     emotional_appeal: "Incorporate emotional storytelling elements",
@@ -39,7 +39,7 @@ function getActionTitle(metricKey: string): string {
 }
 
 function getEffort(metricKey: string): "Low" | "Medium" | "High" {
-  const lowEffort = ["cta_strength", "trust_signals"];
+  const lowEffort = ["CTA_strength", "trust_signals"];
   const highEffort = ["visual_hierarchy", "landing_alignment"];
   if (lowEffort.includes(metricKey)) return "Low";
   if (highEffort.includes(metricKey)) return "High";
