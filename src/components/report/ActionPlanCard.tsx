@@ -105,7 +105,7 @@ export function ActionPlanCard({
           <p className="text-xs font-medium text-muted-foreground mb-0.5">
             Current Evidence
           </p>
-          <p className="text-sm text-foreground line-clamp-2">
+          <p className="text-sm text-foreground">
             {evidenceSummary}. {entityData.comment.split(".")[0]}.
           </p>
         </div>
@@ -113,7 +113,7 @@ export function ActionPlanCard({
           <p className="text-xs font-medium text-muted-foreground mb-0.5">
             Recommended Fix
           </p>
-          <p className="text-sm text-foreground line-clamp-2">
+          <p className="text-sm text-foreground">
             {firstRecommendation}
           </p>
         </div>
